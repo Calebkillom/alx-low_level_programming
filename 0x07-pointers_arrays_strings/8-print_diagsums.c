@@ -9,21 +9,22 @@
 
 void print_diagsums(int *a, int size)
 {
-	int diagonal_sum_1 = 0;
-	int diagonal_sum_2 = 0;
-	int row, i;
+	int i = 0;
+	int j = size - 1;
+	int sum1 = 0;
+	int sum2 = 0;
 
-	for (row = 0; row < size; row++)
+	while (i <= (size * size))
 	{
-		i = (row * size) + row;
-		diagonal_sum_1 += a[i];
+		sum1 = sum1 + a[i];
+		i = i + size + 1;
 	}
 
-	for (row = 1; row <= size; row++)
+	while (j < (size * size - 1))
 	{
-		i = (row * size) - row;
-		diagonal_sum_2 += a[i];
+		sum2 += a[j];
+		j = j + size - 1;
 	}
-	
-	printf("%d, %d\n", diagonal_sum_1, diagonal_sum_2);
+
+	printf("%d, %d\n", sum1, sum2);
 }
